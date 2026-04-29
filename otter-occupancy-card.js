@@ -806,7 +806,7 @@ class OtterOccupancyCard extends HTMLElement {
       const end   = new Date();
       const start = new Date(end - hours * 3600000);
       const resp  = await this._hass.callApi('GET',
-        `history/period/${start.toISOString()}?filter_entity_id=${entityId}&end_time=${end.toISOString()}&minimal_response=true&no_attributes=true`
+        `history/period/${start.toISOString()}?filter_entity_id=${entityId}&end_time=${end.toISOString()}&no_attributes=true`
       );
       const raw   = resp?.[0] || [];
       const valid = raw.filter(s => s.state === 'on' || s.state === 'off');
